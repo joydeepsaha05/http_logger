@@ -1,7 +1,8 @@
+import 'dart:convert';
+
 import 'package:http_logger/log_level.dart';
 import 'package:http_middleware/models/request_data.dart';
 import 'package:http_middleware/models/response_data.dart';
-import 'dart:convert';
 
 class Logger {
   final LogLevel logLevel;
@@ -18,7 +19,7 @@ class Logger {
     String method = data.method.toString().split(".")[1];
 
     int bodyInBytes =
-        data.body != null ? (utf8.encode(data.body.toString()).length) : 0;
+    data.body != null ? (utf8.encode(data.body.toString()).length) : 0;
 
     if (logLevel == LogLevel.BASIC) {
       print("--> ${method} ${data
@@ -47,7 +48,7 @@ class Logger {
       if (logBody) {
         print("BODY:");
         if (data.body == null) {
-          print("Request has no boy.");
+          print("Request has no body.");
         } else {
           print(data.body);
         }
@@ -90,7 +91,7 @@ class Logger {
       if (logBody) {
         print("BODY:");
         if (data.body == null) {
-          print("Request has no boy.");
+          print("Request has no body.");
         } else {
           print(data.body);
         }
